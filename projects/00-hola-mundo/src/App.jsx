@@ -1,18 +1,23 @@
+import { useState } from 'react'
 import './App.css'
 import { TwitterFollowCard } from './TwitterFollowCard'
 
 export function App() {
 
-    const midudev = {isFollowing: true, userName: 'midudev'}
+    const [name, setName] = useState('midudev')
 
     return (
         <section className='App'>
-            <TwitterFollowCard {... midudev}>
+            <TwitterFollowCard userName={name}>
                 Miguel Angel Durán
             </TwitterFollowCard>
-            <TwitterFollowCard isFollowing={false} userName="pheralb">
+            <TwitterFollowCard  userName="pheralb">
                 Pablo Hernandez
             </TwitterFollowCard>
+
+            <button onClick={() => setName('pedromichel')}>
+                Cambio nombre
+            </button>
            
         </section>
     )
